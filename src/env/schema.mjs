@@ -1,5 +1,5 @@
 // @ts-check
-import { z } from "../../node_modules/zod";
+import { z } from "zod";
 
 /**
  * Specify your server-side environment variables schema here.

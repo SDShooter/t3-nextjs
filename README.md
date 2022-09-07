@@ -226,3 +226,6 @@ Here are some useful references you can further look into:
 Here are some resources that we commonly refer to:
 
 - [Protecting routes with Next-Auth.js](https://next-auth.js.org/configuration/nextjs#unstable_getserversession)
+
+npx prisma db push
+npm run dev

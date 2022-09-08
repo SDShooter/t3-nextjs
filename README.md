@@ -268,7 +268,16 @@ Configure bunfig.toml
 echo "framework = 'next'" > bunfig.toml
 ```
 
+```
 bun dev # start dev server
+```
+# Tailwind specific 
+1. Install Tailwind cli 
+```
+https://tailwindcss.com/docs/installation#watching-for-changes
+npm install -D tailwindcss
+
+```
 
 # Bun build / deploy
 1. Install flyctl

@@ -253,3 +253,18 @@ railway
 
  removing prisma and 
  package.json "postinstall": "prisma generate"
+
+# Bun prerequisites
+
+bun add -d bun-framework-next
+npm/node - wget https://nodejs.org/dist/v16.17.0/node-v16.17.0-linux-ppc64le.tar.xz
+
+# Bun build / deploy
+1. Install flyctl
+```
+ curl -L https://fly.io/install.sh | sh
+```
+2.  Build the .bun node_modules package:
+```
+bun bun --use next
+```

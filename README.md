@@ -249,7 +249,7 @@ fly.io - container platform, run web sites, postgresql, planetscale db (serverle
 bun - node replacement. bun install / bun run.  deployable to vercel now I think. 2-3x more requests on same hardware than node/others 
 railway 
   super quick spin up postgresql, redis, or mongodb
-  deploy a docker container from source on GitHub for web hosting
+  deploy a docker container from source on GitHub for web hosting (has nixpacks which build containers super quick)
 
  removing prisma and 
  package.json "postinstall": "prisma generate"

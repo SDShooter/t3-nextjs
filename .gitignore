@@ -41,3 +41,4 @@ yarn-error.log*
 
 #bun
 node_modules.bun
+/dist/*

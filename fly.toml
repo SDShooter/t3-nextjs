@@ -1,4 +1,4 @@
-# fly.toml file generated for t3-nextjs on 2022-09-07T21:37:58-07:00
+# fly.toml file generated for t3-nextjs on 2022-09-08T01:42:34-07:00
 
 app = "t3-nextjs"
 kill_signal = "SIGINT"
@@ -6,12 +6,12 @@ kill_timeout = 5
 processes = []
 
 [env]
-DATABASE_URL="http://fake.com"
-NEXTAUTH_SECRET="bleh"
-DISCORD_CLIENT_ID="blah"
-DISCORD_CLIENT_SECRET="blah"
-NEXTAUTH_URL="http://fake.com"
-PORT="8080"
+  DATABASE_URL = "http://fake.com"
+  DISCORD_CLIENT_ID = "blah"
+  DISCORD_CLIENT_SECRET = "blah"
+  NEXTAUTH_SECRET = "bleh"
+  NEXTAUTH_URL = "http://fake.com"
+  PORT = "8080"
 
 [experimental]
   allowed_public_ports = []

@@ -15,7 +15,7 @@ ENV NEXTAUTH_URL=http://fake.com
 ENV DISCORD_CLIENT_ID=blah
 ENV DISCORD_CLIENT_SECRET=blah
 RUN npx tailwindcss -c ./tailwind.config.cjs -i ./src/styles/globals.css -o ./dist/styles/globals.css
-RUN npm run build
+RUN bun next build
 EXPOSE 8080
 
 

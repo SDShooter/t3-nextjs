@@ -1,7 +1,8 @@
 FROM jarredsumner/bun:edge
 WORKDIR /app 
-RUN apk add curl 
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+RUN apk add curl bash
+RUN apk add nodejs=16.17.0-r0 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main
+RUN apk add npm=8.19.1-r0 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
 COPY package.json package.json
 COPY bun.lockb bun.lockb
 RUN bun install

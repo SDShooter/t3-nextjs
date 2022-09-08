@@ -227,5 +227,20 @@ Here are some resources that we commonly refer to:
 
 - [Protecting routes with Next-Auth.js](https://next-auth.js.org/configuration/nextjs#unstable_getserversession)
 
+```
 npx prisma db push
 npm run dev
+npx vercel env pull - pull env from vercel to local
+```
+
+
+## Edge containers to explore - Firecracker, fly.io, deno deploy 
+
+## Edge runtimes - Cloudflare edge workers, Vercel (these are not fully node compatible, run v8 expose 
+javascript virtual machine)
+
+## Edge runtime ready
+Svelte
+astro
+nextjs - 12.2 sor SSR and API - some performance issues now, but may be resolved soon
+

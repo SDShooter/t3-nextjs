@@ -6,6 +6,12 @@ kill_timeout = 5
 processes = []
 
 [env]
+DATABASE_URL="http://fake.com"
+NEXTAUTH_SECRET="bleh"
+DISCORD_CLIENT_ID="blah"
+DISCORD_CLIENT_SECRET="blah"
+NEXTAUTH_URL="http://fake.com"
+PORT="8080"
 
 [experimental]
   allowed_public_ports = []

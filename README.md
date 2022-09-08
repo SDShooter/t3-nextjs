@@ -257,7 +257,18 @@ railway
 # Bun prerequisites
 
 bun add -d bun-framework-next
-npm/node - wget https://nodejs.org/dist/v16.17.0/node-v16.17.0-linux-ppc64le.tar.xz
+
+NodeJS and NPM (on ubuntu -- see https://github.com/nodesource/distributions/blob/master/README.md#debinstall for other distros)
+```
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+
+```
+Configure bunfig.toml
+```
+echo "framework = 'next'" > bunfig.toml
+```
+
+bun dev # start dev server
 
 # Bun build / deploy
 1. Install flyctl
@@ -266,5 +277,14 @@ npm/node - wget https://nodejs.org/dist/v16.17.0/node-v16.17.0-linux-ppc64le.tar
 ```
 2.  Build the .bun node_modules package:
 ```
-bun bun --use next
+bun bun
+```
+3. Build the nextjs app
+``` 
+npm run build
+```
+3. Run it for production
+```
+bun start 
+(which aliases to next start in package.json)
 ```

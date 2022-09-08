@@ -5,10 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
     "lint": "next lint",
     "bun": "next start nope",
     "clean": "rm -rf node_modules/.cache dist"
+    "start": "source env.sh && next start",
   },
   "dependencies": {
     "@trpc/client": "^9.27.2",
@@ -30,6 +30,7 @@
     "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@typescript-eslint/parser": "^5.33.0",
     "autoprefixer": "^10.4.8",
+    "bun-framework-next": "^12.2.4",
     "eslint": "8.22.0",
     "eslint-config-next": "12.2.5",
     "postcss": "^8.4.16",

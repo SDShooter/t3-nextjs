@@ -1,6 +1,8 @@
 FROM jarredsumner/bun:edge
-WORKDIR /app
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+WORKDIR /app 
+RUN apt upgrade -y && \
+    apt install curl -y 
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 COPY package.json package.json
 COPY bun.lockb bun.lockb
 RUN bun install

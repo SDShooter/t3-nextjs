@@ -7,7 +7,7 @@ import { bodyStreamToNodeStream } from "next/dist/server/body-streams";
 
 const Home: NextPage = () => {
   const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
-
+  console.log(`Running under bun process ${process.isBun}`);
   return (
     <>
       <Head>

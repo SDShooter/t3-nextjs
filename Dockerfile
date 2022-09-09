@@ -5,7 +5,7 @@ RUN apk add nodejs=16.17.0-r0 --repository=http://dl-cdn.alpinelinux.org/alpine/
 RUN apk add npm=8.19.1-r0 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
 COPY package.json package.json
 COPY bun.lockb bun.lockb
-RUN bun install
+RUN /build/bun install
 COPY . .
 RUN npx tailwindcss -c ./tailwind.config.cjs -i ./src/styles/globals.css -o ./public/styles/globals.css
 ENV PORT=8080
@@ -15,7 +15,7 @@ ENV NEXTAUTH_SECRET=bleh
 ENV NEXTAUTH_URL=http://fake.com
 ENV DISCORD_CLIENT_ID=blah
 ENV DISCORD_CLIENT_SECRET=blah
-RUN bun next build
+RUN /build/bun next build
 
 FROM jarredsumner/bun:edge as run
 WORKDIR /app

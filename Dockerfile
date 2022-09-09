@@ -5,8 +5,8 @@ RUN apk add nodejs=16.17.0-r0 --repository=http://dl-cdn.alpinelinux.org/alpine/
 RUN apk add npm=8.19.1-r0 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
 COPY package.json package.json
 COPY bun.lockb bun.lockb
-COPY . .
 RUN bun install
+COPY . .
 RUN npx tailwindcss -c ./tailwind.config.cjs -i ./src/styles/globals.css -o ./public/styles/globals.css
 ENV PORT=8080
 #Secrets should be set securely..  docker secrets, flyctl secret or other manager

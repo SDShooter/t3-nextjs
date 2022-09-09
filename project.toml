@@ -1,6 +1,0 @@
-#Buildpack for Railway/NixPacks
-
-[project]
-id = "jarredsumner/bun:edge"
-name = "Builder"
-version = "1.0.0"

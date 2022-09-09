@@ -7,4 +7,3 @@ echo "bun bun done" && \
 npx tailwindcss -c ./tailwind.config.cjs -i ./src/styles/globals.css -o ./public/styles/globals.css && \
 echo "npx tailwind done" && \
 bun build
-echo "bun build done"

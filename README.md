@@ -286,7 +286,7 @@ npm install -D tailwindcss
 ```
 2.  Build the .bun node_modules package:
 ```
-bun bun
+bun bun --use next
 ```
 3. Build the nextjs app
 ``` 
@@ -297,3 +297,12 @@ npm run build
 bun start 
 (which aliases to next start in package.json)
 ```
+
+# when dependencies change
+bun bun --use next
+
+# dev server
+bun dev
+
+# prod?
+bun next start?

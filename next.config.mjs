@@ -15,8 +15,4 @@ function defineNextConfig(config) {
 export default defineNextConfig({
   reactStrictMode: true,
   swcMinify: true,
-   /**Not sure we need this anymore.. Try without? */
-  experimental: {
-      runtime: "experimental-edge"
-  }
 });

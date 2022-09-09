@@ -13,6 +13,7 @@ ENV NEXTAUTH_SECRET=bleh
 ENV NEXTAUTH_URL=http://fake.com
 ENV DISCORD_CLIENT_ID=blah
 ENV DISCORD_CLIENT_SECRET=blah
+RUN chmod u+x ./build.sh
 RUN ./build.sh
 #RUN bun install -p --verbose
 #RUN npx tailwindcss -c ./tailwind.config.cjs -i ./src/styles/globals.css -o ./public/styles/globals.css

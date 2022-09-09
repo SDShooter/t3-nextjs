@@ -254,6 +254,8 @@ railway
  removing prisma and 
  package.json "postinstall": "prisma generate"
 
+fly deploy --nixpacks
+
 # Bun prerequisites
 
 bun add -d bun-framework-next

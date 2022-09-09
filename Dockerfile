@@ -9,7 +9,7 @@ COPY . .
 RUN find -name "Dockerfile"
 RUN find / -name "bun"
 RUN ls -al .
-RUN bun install -p --verbose
+RUN &bun install -p --verbose
 RUN npx tailwindcss -c ./tailwind.config.cjs -i ./src/styles/globals.css -o ./public/styles/globals.css
 ENV PORT=8080
 #Secrets should be set securely..  docker secrets, flyctl secret or other manager
@@ -18,7 +18,7 @@ ENV NEXTAUTH_SECRET=bleh
 ENV NEXTAUTH_URL=http://fake.com
 ENV DISCORD_CLIENT_ID=blah
 ENV DISCORD_CLIENT_SECRET=blah
-RUN bun next build
+RUN &bun next build
 
 FROM jarredsumner/bun:edge as run
 WORKDIR /app

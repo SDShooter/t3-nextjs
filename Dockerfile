@@ -6,7 +6,7 @@ RUN apk add npm=8.19.1-r0 --repository=http://dl-cdn.alpinelinux.org/alpine/edge
 COPY package.json package.json
 COPY bun.lockb bun.lockb
 COPY . .
-RUN fins -name "Dockerfile"
+RUN find -name "Dockerfile"
 RUN find / -name "bun"
 RUN ls -al .
 RUN bun install

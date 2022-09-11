@@ -233,39 +233,45 @@ npm run dev
 npx vercel env pull - pull env from vercel to local
 ```
 
+## Edge containers to explore - Firecracker, fly.io, deno deploy
 
-## Edge containers to explore - Firecracker, fly.io, deno deploy 
+## Edge runtimes - Cloudflare edge workers, Vercel (these are not fully node compatible, run v8 expose
 
-## Edge runtimes - Cloudflare edge workers, Vercel (these are not fully node compatible, run v8 expose 
 javascript virtual machine)
 
 ## Edge runtime ready
+
 Svelte
 astro
 nextjs - 12.2 sor SSR and API - some performance issues now, but may be resolved soon
 
 firecracker - microvm/container? environment used by fly.io
 fly.io - container platform, run web sites, postgresql, planetscale db (serverless mysql?), edgedb (postgres + edgedb/graph relational db / sql spiritual successor)
-bun - node replacement. bun install / bun run.  deployable to vercel now I think. 2-3x more requests on same hardware than node/others 
-railway 
-  super quick spin up postgresql, redis, or mongodb
-  deploy a docker container from source on GitHub for web hosting (has nixpacks which build containers super quick)
+bun - node replacement. bun install / bun run. deployable to vercel now I think. 2-3x more requests on same hardware than node/others
+railway
+super quick spin up postgresql, redis, or mongodb
+deploy a docker container from source on GitHub for web hosting (has nixpacks which build containers super quick)
 
- removing prisma and 
- package.json "postinstall": "prisma generate"
+removing prisma and
+package.json "postinstall": "prisma generate"
 
 fly deploy --nixpacks
+
+fly deploy --dockerfile Dockerfile.no
 
 # Bun prerequisites
 
 bun add -d bun-framework-next
 
 NodeJS and NPM (on ubuntu -- see https://github.com/nodesource/distributions/blob/master/README.md#debinstall for other distros)
+
 ```
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 
 ```
+
 Configure bunfig.toml
+
 ```
 echo "framework = 'next'" > bunfig.toml
 ```
@@ -273,8 +279,11 @@ echo "framework = 'next'" > bunfig.toml
 ```
 bun dev # start dev server
 ```
-# Tailwind specific 
-1. Install Tailwind cli 
+
+# Tailwind specific
+
+1. Install Tailwind cli
+
 ```
 https://tailwindcss.com/docs/installation#watching-for-changes
 npm install -D tailwindcss
@@ -282,29 +291,40 @@ npm install -D tailwindcss
 ```
 
 # Bun build / deploy
+
 1. Install flyctl
+
 ```
  curl -L https://fly.io/install.sh | sh
 ```
+
 2.  Build the .bun node_modules package:
+
 ```
 bun bun --use next
 ```
+
 3. Build the nextjs app
-``` 
+
+```
 npm run build
 ```
+
 3. Run it for production
+
 ```
-bun start 
+bun start
 (which aliases to next start in package.json)
 ```
 
 # when dependencies change
+
 bun bun --use next
 
 # dev server
+
 bun dev
 
 # prod?
+
 bun next start?

@@ -11,13 +11,13 @@ import type { AppProps, NextWebVitalsMetric } from "next/app";
 
 export function reportWebVitals(metric: NextWebVitalsMetric) {
   //es-lin
-  console.log(metric);
+  //console.log(metric);
   // const body = JSON.stringify({
   //   name: metric.name,
   //   value: metric.value,
   // });
   switch (metric.name) {
-    case "FCP":
+    case "LCP":
       saveToLocalStorage(metric);
       break;
     case "TTFB":
@@ -36,7 +36,7 @@ function saveToLocalStorage(metric: NextWebVitalsMetric) {
   const times = existing == null ? [] : JSON.parse(existing); //eslint-ignore
   times.push(Math.round(metric.value * 10) / 10);
   localStorage.setItem(metric.name, JSON.stringify(times));
-  console.table(times);
+  // console.table(times);
 }
 
 const MyApp: AppType = ({

@@ -257,7 +257,7 @@ package.json "postinstall": "prisma generate"
 
 fly deploy --nixpacks
 
-fly deploy --dockerfile Dockerfile.no
+fly deploy --dockerfile Dockerfile.fly
 
 # Bun prerequisites
 

@@ -1,13 +1,17 @@
+/* eslint-disable */
 import { NextPage } from "next";
+import React from "react";
+import { DOMElement, ReactComponentElement, ReactElement } from "react";
+import { any } from "zod";
 
 const Benchmarker: NextPage = () => {
-  const currentTime = Date.now();
-  const renderTime = currentTime - window.performance.timeOrigin;
-  //requestStart
+  // const currentTime = Date.now();
+  // const renderTime = currentTime - window.performance.timeOrigin;
+  // //requestStart
 
   return (
     <>
-      <span>Request to render time: {renderTime}</span>
+      <Benchmarker />
     </>
   );
 };

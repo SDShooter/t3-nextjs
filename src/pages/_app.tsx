@@ -7,6 +7,37 @@ import type { AppType } from "next/dist/shared/lib/utils";
 import superjson from "superjson";
 import type { AppRouter } from "../server/router";
 import "../styles/globals.css";
+import type { AppProps, NextWebVitalsMetric } from "next/app";
+
+export function reportWebVitals(metric: NextWebVitalsMetric) {
+  //es-lin
+  console.log(metric);
+  // const body = JSON.stringify({
+  //   name: metric.name,
+  //   value: metric.value,
+  // });
+  switch (metric.name) {
+    case "FCP":
+      saveToLocalStorage(metric);
+      break;
+    case "TTFB":
+      saveToLocalStorage(metric);
+      break;
+    default:
+      break;
+  }
+  //return body;
+}
+
+function saveToLocalStorage(metric: NextWebVitalsMetric) {
+  //const test = ["test", "test"];
+  const existing = window.localStorage.getItem(metric.name) ?? null;
+  //'{"name":"test"}'
+  const times = existing == null ? [] : JSON.parse(existing); //eslint-ignore
+  times.push(Math.round(metric.value * 10) / 10);
+  localStorage.setItem(metric.name, JSON.stringify(times));
+  console.table(times);
+}
 
 const MyApp: AppType = ({
   Component,
@@ -21,7 +52,6 @@ const MyApp: AppType = ({
 
 const getBaseUrl = () => {
   if (typeof window !== "undefined") return ""; // browser should use relative url
-  console.log(process.env)
   if (process?.env?.VERCEL_URL) return `https://${process?.env?.VERCEL_URL}`; // SSR should use vercel url
   return `http://localhost:${process.env.PORT ?? 3000}`; // dev SSR should use localhost
 };

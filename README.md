@@ -233,28 +233,6 @@ npm run dev
 npx vercel env pull - pull env from vercel to local
 ```
 
-## Edge containers to explore - Firecracker, fly.io, deno deploy
-
-## Edge runtimes - Cloudflare edge workers, Vercel (these are not fully node compatible, run v8 expose
-
-javascript virtual machine)
-
-## Edge runtime ready
-
-Svelte
-astro
-nextjs - 12.2 sor SSR and API - some performance issues now, but may be resolved soon
-
-firecracker - microvm/container? environment used by fly.io
-fly.io - container platform, run web sites, postgresql, planetscale db (serverless mysql?), edgedb (postgres + edgedb/graph relational db / sql spiritual successor)
-bun - node replacement. bun install / bun run. deployable to vercel now I think. 2-3x more requests on same hardware than node/others
-railway
-super quick spin up postgresql, redis, or mongodb
-deploy a docker container from source on GitHub for web hosting (has nixpacks which build containers super quick)
-
-removing prisma and
-package.json "postinstall": "prisma generate"
-
 fly deploy --nixpacks
 
 fly deploy --dockerfile Dockerfile.fly

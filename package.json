@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "cp -R public .next/standalone && cp -R .next/static/ .next/standalone/.next/static && pwd && cp -R .next/standalone/* dist/ && cp -R .next/standalone/.next/ dist/ ls -al dist && ls -al ./.next/standalone",
+    "postbuild": "cp -R public .next/standalone && cp -R .next/static/ .next/standalone/.next/static && pwd && cp -R .next/standalone/.next dist/ && cp -R .next/standalone/* dist/ && ls -al dist && ls -al ./.next/standalone",
     "lint": "next lint",
     "clean": "rm -rf node_modules/.cache dist",
     "start": "next start"

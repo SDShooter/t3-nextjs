@@ -9,7 +9,7 @@
     "postbuild": "cp -R public .next/standalone && cp -R .next/static/ .next/standalone/.next/static && pwd && ls -al .next/standalone",
     "lint": "next lint",
     "clean": "rm -rf node_modules/.cache dist",
-    "start": "ls -al /tmp"
+    "start": "pwd && ls -al"
   },
   "dependencies": {
     "@trpc/client": "^9.27.2",

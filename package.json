@@ -2,7 +2,7 @@
   "name": "t3-nextjs",
   "version": "0.1.0",
   "private": true,
-  "main": "server.js",
+  "main": "dist/server.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

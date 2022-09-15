@@ -16,7 +16,7 @@ export default defineNextConfig({
   reactStrictMode: true,
   swcMinify: true,
   output: "standalone",
-  distDir: "dist",
+  //distDir: "dist",
   //eslint: { ignoreDuringBuilds: true },
   //typescript: { ignoreBuildErrors: true },
 });

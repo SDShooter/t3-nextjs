@@ -29,7 +29,7 @@ ENV DISCORD_CLIENT_ID=blah
 ENV DISCORD_CLIENT_SECRET=blah
 #definately running under nodejs right now.. :-(
 RUN apk add nodejs=16.17.0-r0 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main
-
+RUN apk add npm=8.19.1-r0 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
 COPY --from=build /build/.next ./.next
 COPY --from=build /build/public ./public
 COPY --from=build /build/package.json .

@@ -5,6 +5,7 @@
   "main": ".next/standalone/server.js",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "ls -al",
     "build": "next build && ls -al",
     "postbuild": "cp -R public .next/standalone && cp -R .next/static/ .next/standalone/.next/static && ls -al",
     "lint": "next lint",

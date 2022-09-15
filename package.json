@@ -2,11 +2,11 @@
   "name": "t3-nextjs",
   "version": "0.1.0",
   "private": true,
-  "main": "server.js",
+  "main": "./standalone/server.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "cp -R public .next/standalone && cp -R .next/static/ .next/standalone/.next/static && pwd && cp -R ./.next/standalone/ dist && ls -al dist",
+    "postbuild": "cp -R public .next/standalone && cp -R .next/static/ .next/standalone/.next/static && pwd && cp -R ./.next/standalone/ dist/ && ls -al dist",
     "lint": "next lint",
     "clean": "rm -rf node_modules/.cache dist",
     "start": "next start"

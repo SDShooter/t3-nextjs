@@ -39,6 +39,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-#bun
-node_modules.bun
 /dist/*

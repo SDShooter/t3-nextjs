@@ -19,8 +19,6 @@ RUN npm run build
 
 FROM jarredsumner/bun:edge as run
 WORKDIR /workspace
-EXPOSE 3000
-ENV PORT=3000
 #Secrets should be set securely..  docker secrets, flyctl secret or other manager
 ENV DATABASE_URL=http://fake.com
 ENV NEXTAUTH_SECRET=bleh

@@ -1,16 +1,14 @@
 steps:
-  - name: gcr.io/k8s-skaffold/pack
-    env:
-      - GOOGLE_ENTRYPOINT=$_ENTRYPOINT
+  - name: gcr.io/cloud-builders/docker
     args:
       - build
+      - "--no-cache"
+      - "-t"
       - "$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA"
-      - "--builder=gcr.io/buildpacks/builder:v1"
-      - "--network=cloudbuild"
-      - "--path=."
-      - "--env=GOOGLE_ENTRYPOINT"
-    id: Buildpack
-    entrypoint: pack
+      - .
+      - "-f"
+      - Dockerfile2
+    id: Build
   - name: gcr.io/cloud-builders/docker
     args:
       - push
@@ -27,7 +25,7 @@ steps:
       - >-
         --labels=managed-by=gcp-cloud-build-deploy-cloud-run,commit-sha=$COMMIT_SHA,gcb-build-id=$BUILD_ID,gcb-trigger-id=$_TRIGGER_ID,$_LABELS
       - "--region=$_DEPLOY_REGION"
-      - "--quiet"
+      #- '--quiet'
     id: Deploy
     entrypoint: gcloud
 images:
@@ -35,13 +33,12 @@ images:
 options:
   substitutionOption: ALLOW_LOOSE
 substitutions:
-  _LABELS: gcb-trigger-id=c411bd37-7285-41c0-819e-436e5de55cfd
-  _TRIGGER_ID: c411bd37-7285-41c0-819e-436e5de55cfd
-  _GCR_HOSTNAME: us.gcr.io
   _PLATFORM: managed
+  _LABELS: gcb-trigger-id=ed09c1d6-1833-4d79-a0da-0cf84edc18a9
+  _TRIGGER_ID: ed09c1d6-1833-4d79-a0da-0cf84edc18a9
   _SERVICE_NAME: t3
-  _ENTRYPOINT: npm run build
   _DEPLOY_REGION: us-west1
+  _GCR_HOSTNAME: us.gcr.io
 tags:
   - gcp-cloud-build-deploy-cloud-run
   - gcp-cloud-build-deploy-cloud-run-managed

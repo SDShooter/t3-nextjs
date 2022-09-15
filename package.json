@@ -8,7 +8,7 @@
     "build": "next build",
     "lint": "next lint",
     "clean": "rm -rf node_modules/.cache dist",
-    "start": "next start"
+    "start": "cp -R public .next/standalone && cp -R .next/static/ .next/standalone/.next/static && node .next/standalone/server.js"
   },
   "dependencies": {
     "@trpc/client": "^9.27.2",

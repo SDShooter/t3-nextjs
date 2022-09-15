@@ -1,33 +1,32 @@
-FROM jarredsumner/bun:edge as build
-WORKDIR /build
-RUN apk add curl bash
-RUN apk add nodejs=16.17.0-r0 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main
-RUN apk add npm=8.19.1-r0 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
-COPY package.json package.json
-COPY bun.lockb bun.lockb
+FROM node:16-alpine AS build
+# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
 COPY . .
-ENV NODE_ENV=production
-#Secrets should be set securely..  docker secrets, flyctl secret or other manager
+
+ENV NEXT_TELEMETRY_DISABLED 1
 RUN npm install
 RUN npm run build
+#RUN npm prune --production
 
-FROM jarredsumner/bun:edge as run
+# Production image, copy all the files and run next
+FROM node:16-alpine AS runner
 WORKDIR /workspace
-#Secrets should be set securely..  docker secrets, flyctl secret or other manager
-ENV DATABASE_URL=http://fake.com
-ENV NEXTAUTH_SECRET=bleh
-ENV NEXTAUTH_URL=http://fake.com
-ENV DISCORD_CLIENT_ID=blah
-ENV DISCORD_CLIENT_SECRET=blah
-ENV NODE_ENV=production
-EXPOSE 8080
-ENV PORT=8080
-#definately running under nodejs right now.. :-(
-RUN apk add nodejs=16.17.0-r0 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main
-RUN apk add npm=8.19.1-r0 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
-COPY --from=build /build/.next ./.next
-COPY --from=build /build/public ./public
-COPY --from=build /build/package.json .
-COPY --from=build /build/node_modules ./node_modules
 
-ENTRYPOINT ["npm", "run", "start"]
+ENV NODE_ENV production
+ENV NEXT_TELEMETRY_DISABLED 1
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=build --chown=nextjs:nodejs /app/.next/standalone/ ./
+COPY --from=build --chown=nextjs:nodejs /app/.next/static ./static/
+COPY --from=build --chown=nextjs:nodejs /app/public ./public/
+USER nextjs
+
+EXPOSE 8080
+
+ENV PORT 8080
+
+CMD ["node", "server.js"]

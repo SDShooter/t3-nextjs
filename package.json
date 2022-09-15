@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "cp -R public dist/ && cp -R .next/static/ dist/.next/static && ls -al dist && ls -al dist/.next",
+    "postbuild": "cp -R public dist/ && ls -al dist && ls -al dist/.next",
     "lint": "next lint",
     "clean": "rm -rf node_modules/.cache dist",
     "start": "ls -al"

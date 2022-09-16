@@ -8,7 +8,7 @@
     "build": "next build",
     "lint": "next lint",
     "clean": "rm -rf node_modules/.cache dist",
-    "start": "ls -al && ls -al dist/ && source ./env.sh && next start"
+    "start": "env && ls -al && ls -al dist/ && source ./env.sh && next start"
   },
   "dependencies": {
     "@trpc/client": "^9.27.2",

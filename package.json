@@ -2,13 +2,13 @@
   "name": "t3-nextjs",
   "version": "0.1.0",
   "private": true,
-  "main": ".next/standalone/server.js",
+  "main": "dist/.next/standalone/server.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "lint": "next lint",
     "clean": "rm -rf node_modules/.cache dist",
-    "start": "ls -al dist && ls -al dist/.next && ls -al dist/.next/standalone && ls -al dist/.next/standalone/.next"
+    "start": "ls -al dist && ls -al && ls -al dist/standalone && ls -al dist/standalone/.next"
   },
   "dependencies": {
     "@trpc/client": "^9.27.2",

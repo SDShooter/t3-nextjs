@@ -306,3 +306,7 @@ bun dev
 # prod?
 
 bun next start?
+
+# Set up environment for Linux/Mac
+
+source ./env.sh

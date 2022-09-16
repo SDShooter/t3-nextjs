@@ -8,7 +8,7 @@
     "build": "next build",
     "lint": "next lint",
     "clean": "rm -rf node_modules/.cache dist",
-    "start": "ls -al dist"
+    "start": "ls -al && ls -al dist/ && cat package.json"
   },
   "dependencies": {
     "@trpc/client": "^9.27.2",

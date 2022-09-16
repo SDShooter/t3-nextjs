@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "npm prune",
     "lint": "next lint",
     "clean": "rm -rf node_modules/.cache dist",
-    "start": "env && ls -al && ls -al dist/ && source ./env.sh && next start"
+    "start": "npm install && ls -al && ls -al dist/ && next start"
   },
   "dependencies": {
     "@trpc/client": "^9.27.2",

@@ -6,10 +6,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "ls -al dist && ls -al dist/standalone && ls -al dist/standalone/dist && mkdir dist/standalone/dist/.next/ ",
     "lint": "next lint",
     "clean": "rm -rf node_modules/.cache dist",
-    "start": "ls -al && ls -al dist && ls -al dist/standalone && ls -al dist/standalone/dist"
+    "start": "next start"
   },
   "dependencies": {
     "@trpc/client": "^9.27.2",

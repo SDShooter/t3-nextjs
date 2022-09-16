@@ -9,7 +9,7 @@
     "postbuild": "npm prune",
     "lint": "next lint",
     "clean": "rm -rf node_modules/.cache dist",
-    "start": "next start"
+    "start": "ls -al node_modules && ls -al node_modules/.bin/"
   },
   "dependencies": {
     "@trpc/client": "^9.27.2",

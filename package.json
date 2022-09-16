@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "ls -al dist && ls -al dist/standalone && ls -al dist/standalone/dist && mkdir dist/standalone/dist/.next/ && ls -al /dist/standalone/dist/.next && mv dist/standalone/dist/* /dist/standalone/dist/.next/ ",
+    "postbuild": "ls -al dist && ls -al dist/standalone && ls -al dist/standalone/dist && mkdir dist/standalone/dist/.next/ ",
     "lint": "next lint",
     "clean": "rm -rf node_modules/.cache dist",
     "start": "ls -al && ls -al dist && ls -al dist/standalone && ls -al dist/standalone/dist"
